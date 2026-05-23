@@ -300,10 +300,10 @@ _pool[data] = new ObjectPool<Enemy>(
 
 ### 6.1 Запуск у Unity
 ```
-1. Відкрити проєкт у Unity Hub: D:\game\TowerDefense2D
+1. Відкрити проєкт у Unity Hub: 
 2. Версія: Unity 6 (6000.4.8f1)
 3. У меню Editor:
-     TowerDefense → 1 - Build Game Scene    (генерує Game.unity)
+     TowerDefense → 1 - Build Game Scene   
      TowerDefense → 2 - Build Main Menu Scene
 4. Запустити ▶ Play
 ```
@@ -315,13 +315,7 @@ _pool[data] = new ObjectPool<Enemy>(
 TowerDefense → 3 - Build WebGL (to /docs)
 ```
 
-**Спосіб Б (командний рядок, для CI/CD):**
-```bash
-"C:\Program Files\Unity\Hub\Editor\6000.4.8f1\Editor\Unity.exe" \
-    -batchmode -nographics -quit \
-    -projectPath "D:\game\TowerDefense2D" \
-    -executeMethod WebGLBuilder.BuildForPages \
-    -logFile webgl_build.log
+
 ```
 
 Тривалість на сучасному CPU: **5–12 хвилин** (IL2CPP компіляція — найдовший етап).
@@ -339,10 +333,10 @@ Pages автоматично оновиться (1–2 хвилини) за ад
 
 ---
 
-## 7. Перелік ассетів та ШІ-генерація
+## 7. Перелік ассетів
 
 ### 7.1 Зовнішні ассети
-**Жодних**. У грі **немає** жодного завантаженого .png / .ogg / .ttf файлу. Усе генерується у коді.
+**Жодних**. У грі **немає** жодного завантаженого .png / .ogg / .ttf файлу. Усе генерується у коді. Задля ефекту майнкрафтного стилю .
 
 ### 7.2 Процедурна генерація спрайтів
 Реалізовано в `SceneBootstrapper.cs` через побудову `Texture2D` піксель-за-пікселем (`SetPixels`).
@@ -383,16 +377,7 @@ Pages автоматично оновиться (1–2 хвилини) за ад
 
 **Усе аудіо — програмно згенероване, ніяких .wav/.ogg.**
 
-### 7.4 Використання ШІ
-Розробку допомагав вести **Claude (Anthropic) Sonnet 4.5/4.6** — у форматі парної роботи:
-- Архітектурний дизайн (state machine, pool, події)
-- Генерація початкового коду компонентів
-- Дебаг проблем (наприклад, `[DisallowMultipleComponent]` для усунення дублювання EnemyHealth, перевід HP-бара з `Slider.value` на `anchorMax.x`, фікс блокування кліків через `raycastTarget`)
-- Налаштування build-pipeline і GitHub Pages
 
-Фінальний код, дизайн, баланс і всі творчі рішення — **прийняті та перевірені автором проєкту**.
-
----
 
 ## 8. Структура проєкту
 
