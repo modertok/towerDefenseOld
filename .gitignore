@@ -7,6 +7,11 @@
 [Ll]ogs/
 [Uu]ser[Ss]ettings/
 
+# Allow WebGL build output for GitHub Pages
+!docs/
+!docs/**
+webgl_build.log
+
 # MemoryCaptures
 [Mm]emoryCaptures/
 
